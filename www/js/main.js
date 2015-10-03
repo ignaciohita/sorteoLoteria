@@ -1,5 +1,6 @@
 var combinacionLista = false,
-    pluginListo = false;
+    pluginListo = false,
+    patronVibracion = [];
 
 function calcularCombinacion() {
     "use strict";
@@ -29,10 +30,16 @@ function calcularCombinacion() {
         nodoNumero = document.createElement("li");
         nodoNumero.appendChild(document.createTextNode(resultados[i]));
         document.getElementById("listaResultados").appendChild(nodoNumero);
+
+        patronVibracion.push(resultados[i] * 100);
     }
 
     if (pluginListo) {
         navigator.splashscreen.hide();
+
+        if (navigator && navigator.vibrate) {
+            navigator.vibrate(patronVibracion);
+        }
     }
 
     combinacionLista = true;
@@ -45,6 +52,10 @@ function dispositivoListo() {
 
     if (combinacionLista) {
         navigator.splashscreen.hide();
+
+        if (navigator && navigator.vibrate) {
+            navigator.vibrate(patronVibracion);
+        }
     }
 }
 
