@@ -1,3 +1,6 @@
+var combinacionLista = false,
+    pluginListo = false;
+
 function calcularCombinacion() {
     "use strict";
 
@@ -27,10 +30,27 @@ function calcularCombinacion() {
         nodoNumero.appendChild(document.createTextNode(resultados[i]));
         document.getElementById("listaResultados").appendChild(nodoNumero);
     }
+
+    if (pluginListo) {
+        navigator.splashscreen.hide();
+    }
+
+    combinacionLista = true;
+}
+
+function dispositivoListo() {
+    "use strict";
+
+    pluginListo = true;
+
+    if (combinacionLista) {
+        navigator.splashscreen.hide();
+    }
 }
 
 function inicioAplicacion() {
     "use strict";
 
+    document.addEventListener("deviceReady", dispositivoListo);
     calcularCombinacion();
 }

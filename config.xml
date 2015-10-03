@@ -1,18 +1,57 @@
-<?xml version='1.0' encoding='utf-8' ?>
-    <widget id="pro.hita.sorteoLoteria" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
+<?xml version="1.0" encoding="utf-8" ?>
+    <widget id="pro.hita.sorteoLoteria" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
         <name>Sorteo de Lotería</name>
         <description>Ejemplo del libro: un sistema sencillo que genera combinaciones aleatorias para lotería</description>
         <author email="ignaciohita@gmail.com" href="http://www.hita.pro">Jose Ignacio Hita Barraza</author>
         <content src="index.html" />
+        <preference name="SplashScreen" value="screen" />
+        <preference name="AutoHideSplashScreen" value="false" />
 
         <icon src="www/img/icon/icon144x144.png" />
+        <plugin name="cordova-plugin-splashscreen" spec="^2.1.0" />
 
         <platform name="android">
             <allow-intent href="market:*" />
+
+            <icon density="ldpi" src="www/img/icon/icon36x36.png" />
+            <icon density="mdpi" src="www/img/icon/icon48x48.png" />
+            <icon density="hdpi" src="www/img/icon/icon72x72.png" />
+            <icon density="xhdpi" src="www/img/icon/icon96x96.png" />
+
+            <splash density="land-ldpi" src="www/img/splash/splash320x200.png" />
+            <splash density="land-mdpi" src="www/img/splash/splash480x320.png" />
+            <splash density="land-hdpi" src="www/img/splash/splash800x480.png" />
+            <splash density="land-xhdpi" src="www/img/splash/splash1280x720.png" />
+            <splash density="land-xxhdpi" src="www/img/splash/splash1600x960.png" />
+            <splash density="land-xxxhdpi" src="www/img/splash/splash1920x1280.png" />
+
+            <splash density="port-ldpi" src="www/img/splash/splash200x320.png" />
+            <splash density="port-mdpi" src="www/img/splash/splash320x480.png" />
+            <splash density="port-hdpi" src="www/img/splash/splash480x800.png" />
+            <splash density="port-xhdpi" src="www/img/splash/splash720x1280.png" />
+            <splash density="port-xxhdpi" src="www/img/splash/splash960x1600.png" />
+            <splash density="port-xxxhdpi" src="www/img/splash/splash1280x1920.png" />
         </platform>
 
         <platform name="ios">
             <allow-intent href="itms:*" />
             <allow-intent href="itms-apps:*" />
+
+            <icon height="57" src="www/img/icon/icon57x57.png" width="57" />
+            <icon height="72" src="www/img/icon/icon72x72.png" width="72" />
+            <icon height="114" src="www/img/icon/icon57x57.png" width="114" />
+            <icon height="144" src="www/img/icon/icon72x72.png" width="144" />
+
+            <splash height="480" src="www/img/splash/splash320x480.png" width="320" />
+            <splash height="960" src="www/img/splash/splash640x960.png" width="640" />
+            <splash height="1024" src="www/img/splash/splash768x1024.png" width="768" />
+            <splash height="2048" src="www/img/splash/splash1536x2048.png" width="1536" />
+            <splash height="2208" src="www/img/splash/splash1242x2208.png" width="1242" />
+
+            <splash height="320" src="www/img/splash/splash480x320.png" width="480" />
+            <splash height="640" src="www/img/splash/splash960x640.png" width="960" />
+            <splash height="768" src="www/img/splash/splash1024x768.png" width="1024" />
+            <splash height="1536" src="www/img/splash/splash2048x1536.png" width="2048" />
+            <splash height="1242" src="www/img/splash/splash2208x1242.png" width="2208" />
         </platform>
     </widget>
