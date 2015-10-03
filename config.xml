@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+    <widget id="pro.hita.sorteoLoteria" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
+        <name>Sorteo de Lotería</name>
+        <description>Ejemplo del libro: un sistema sencillo que genera combinaciones aleatorias para lotería</description>
+        <author email="ignaciohita@gmail.com" href="http://www.hita.pro">Jose Ignacio Hita Barraza</author>
+        <content src="index.html" />
+
+        <icon src="www/img/icon/icon144x144.png" />
+
+        <platform name="android">
+            <allow-intent href="market:*" />
+        </platform>
+
+        <platform name="ios">
+            <allow-intent href="itms:*" />
+            <allow-intent href="itms-apps:*" />
+        </platform>
+    </widget>
