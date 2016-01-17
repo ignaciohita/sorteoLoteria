@@ -1,5 +1,7 @@
 var combinacionLista = false,
     pluginListo = false,
+    aceleracionAnterior,
+    idMonitorizacion,
     patronVibracion = [];
 
 function calcularCombinacion() {
@@ -45,10 +47,43 @@ function calcularCombinacion() {
     combinacionLista = true;
 }
 
+function monitorizarAcelerometro() {
+    "use strict";
+
+    idMonitorizacion = navigator.accelerometer.watchAcceleration(function (acceleration) {
+        var aceleracionActual;
+
+        if (aceleracionAnterior !== undefined) {
+            aceleracionActual = {};
+            aceleracionActual.x = Math.abs(aceleracionAnterior.x - acceleration.x);
+            aceleracionActual.y = Math.abs(aceleracionAnterior.y - acceleration.y);
+            aceleracionActual.z = Math.abs(aceleracionAnterior.z - acceleration.z);
+            aceleracionActual.total = aceleracionActual.x + aceleracionActual.y + aceleracionActual.z;
+        }
+
+        if (aceleracionActual && aceleracionActual.total > 50) {
+            calcularCombinacion();
+        }
+
+        aceleracionAnterior = acceleration;
+    }, undefined, {
+        frequency: 300
+    });
+}
+
+function liberarAcelerometro() {
+    "use strict";
+
+    navigator.accelerometer.clearWatch(idMonitorizacion);
+}
+
 function dispositivoListo() {
     "use strict";
 
     pluginListo = true;
+
+    document.addEventListener("pause", liberarAcelerometro);
+    document.addEventListener("resume", monitorizarAcelerometro);
 
     if (combinacionLista) {
         navigator.splashscreen.hide();
@@ -56,6 +91,13 @@ function dispositivoListo() {
         if (navigator && navigator.vibrate) {
             navigator.vibrate(patronVibracion);
         }
+    }
+
+    if (navigator && navigator.accelerometer !== undefined) {
+        document.getElementById("mensajeAgitado").style.display = "block";
+        monitorizarAcelerometro();
+    } else {
+        document.getElementById("mensajeAgitado").style.display = "none";
     }
 }
 

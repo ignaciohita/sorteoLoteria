@@ -10,6 +10,7 @@
         <icon src="www/img/icon/icon144x144.png" />
         <plugin name="cordova-plugin-splashscreen" spec="2.1.0" />
         <plugin name="cordova-plugin-vibration" spec="2.0.0" />
+        <plugin name="cordova-plugin-device-motion" spec="1.2.0" />
 
         <platform name="android">
             <allow-intent href="market:*" />
